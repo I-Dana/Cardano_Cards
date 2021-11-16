@@ -1,0 +1,186 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
+body{
+    
+    background-color: #E6CCA9;
+    
+}
+
+header{
+    background-color:#010038 ;
+    color: white;
+    margin: auto;
+    padding: 30px;
+    text-align: center;
+}
+
+.container-card{
+    max-width: 1200px;
+    margin: auto;
+    
+    margin-top: 100px; /*Para que la box se despegue de los bordes de arriba*/
+    margin-bottom: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+}
+
+.card-body{
+    margin: 20px auto; /*Separacion entre las cards*/
+    perspective: 1000px;  
+
+    
+}
+
+.card-body:hover .card{
+    transform: rotateY(180deg);
+    
+} 
+.card{
+    width: 200px;
+    height: 300px;
+    /*background-color: beige;/*con esto se ve el color de la card*/
+    position: relative; /*para que se empaqueten junto a su padre*/
+    transform-style: preserve-3d;
+    transition: all 600ms;
+    
+    
+}
+
+.card-front{
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.card-back{
+    background-size: cover;
+    background-position: center;
+}
+
+.card-front, 
+.card-back{
+    width: 100%;
+    height: 100%; /*para que sean del mismo ancho y alto que el padre*/
+    position: absolute;
+    top: 0;   /*top y left 0 para que se mantengan arriba y pegado a la izquierda*/
+    left: 0;
+    backface-visibility:hidden;/*La front se muestra y la back se oculta*/
+    transform-style: preserve-3d;
+    border-radius: 25px;
+    box-shadow:1px 1px 40px -2px #000000; 
+
+}
+
+.card-back{
+    transform: rotateY(180deg);
+    background-color: rgba(255, 255, 255, 0.473);
+}
+
+.body-card-front{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.body-card-back{
+    padding: 20px;
+    text-align: center;
+}
+
+.body-card-back p{
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+
+.body-card-back input{
+    padding: 15px 15px; /*tamano del boton*/
+    margin-top: 200px ; /*para que baje un poco mas abajo del texto*/
+    
+    font-size: 15px;
+    
+    border: 0.5px solid #000000;
+    color: white;
+    background-color: blue;
+    border-radius: 2px;
+    opacity: 0.6;
+    
+    /*box-shadow: 1px 1px 30px  #C15050 ;
+    
+    transition: box-shadow 600ms;*/
+    
+
+}
+
+footer{
+    background-color:#010038 ;
+    margin: 0;
+    padding: 40px;
+    color: white;
+    align-items: center;
+}
+
+footer p{
+    text-align: center;
+    margin: 0;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+}
+
+@media screen and (max-width: 800px){
+    .main{
+        width: 100%;
+    }
+    
+    .container-card{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .container{
+        width: 100%;
+    }
+
+}
+
+@media  screen and (max-width: 640px){
+    .container-card{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+}
+
+@media screen and (max-width: 370px){
+    .card{
+        width: 150px;
+        height: 250px;
+    }
+    .body-card-back input{
+        margin-top:170px;
+        padding: 0px;
+        font-size: small;
+        
+    }
+
+}
